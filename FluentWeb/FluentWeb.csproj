@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Title>FluentWeb</Title>
+        <PackageProjectUrl>https://github.com/Exellion/FluentWeb</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/Exellion/FluentWeb</RepositoryUrl>
+        <PackageTags>.net c# web http</PackageTags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    </ItemGroup>
+
+</Project>
