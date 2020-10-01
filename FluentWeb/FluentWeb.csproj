@@ -9,11 +9,12 @@
     <PropertyGroup>
         <PackageId>FluentWeb</PackageId>
         <Title>FluentWeb</Title>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Konstantin Ivanov</Authors>
         <PackageProjectUrl>https://github.com/Exellion/FluentWeb</PackageProjectUrl>
         <RepositoryUrl>https://github.com/Exellion/FluentWeb</RepositoryUrl>
         <PackageTags>.net c# web http</PackageTags>
+        <PackageReleaseNotes>add FetchAs&lt;T&gt; method</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>

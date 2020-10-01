@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace FluentWeb
@@ -38,6 +41,18 @@ namespace FluentWeb
         {
             message.Content = new StringContent(JsonConvert.SerializeObject(body, serializerSettings!), Encoding.UTF8, "application/json");
             return message;
+        }
+
+        public static async Task<TResult> FetchAs<TResult>(this HttpRequestMessage message, HttpClient httpClient, CancellationToken cancellation, JsonSerializerSettings serializerSettings = null)
+        {
+            var response = await httpClient.SendAsync(message, cancellation);
+
+            if (!response.IsSuccessStatusCode)
+                throw new WebException($"{response.StatusCode}. {response.ReasonPhrase}");
+
+            string json = await response.Content.ReadAsStringAsync();
+
+            return JsonConvert.DeserializeObject<TResult>(json, serializerSettings);
         }
     }
 }
