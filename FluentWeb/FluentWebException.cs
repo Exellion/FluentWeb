@@ -3,11 +3,12 @@ using System.Net.Http;
 
 namespace FluentWeb
 {
-    public class FluentWebException : Exception
+    public class FluentWebException : InvalidOperationException
     {
         public HttpResponseMessage HttpResponse { get; }
-        
-        public FluentWebException(HttpResponseMessage httpResponse)
+
+        public FluentWebException(string message, HttpResponseMessage httpResponse)
+            : base(message)
         {
             this.HttpResponse = httpResponse;
         }

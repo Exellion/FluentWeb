@@ -47,7 +47,7 @@ namespace FluentWeb.Extensions
             var response = await httpClient.SendAsync(message, cancellation);
 
             if (!response.IsSuccessStatusCode)
-                throw new FluentWebException(response);
+                throw new FluentWebException(response.ReasonPhrase, response);
 
             string json = await response.Content.ReadAsStringAsync();
 
