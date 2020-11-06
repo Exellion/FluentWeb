@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 
-namespace FluentWeb
+namespace FluentWeb.Extensions
 {
     public static class StringExtensions
     {

@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace FluentWeb
+namespace FluentWeb.Extensions
 {
     public static class HttpRequestMessageExtensions
     {
@@ -48,7 +47,7 @@ namespace FluentWeb
             var response = await httpClient.SendAsync(message, cancellation);
 
             if (!response.IsSuccessStatusCode)
-                throw new WebException($"{response.StatusCode}. {response.ReasonPhrase}");
+                throw new FluentWebException(response);
 
             string json = await response.Content.ReadAsStringAsync();
 
